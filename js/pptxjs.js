@@ -439,9 +439,12 @@
         function getSlideSizeAndSetDefaultTextStyle(zip) {
             //get app version
             var app = readXmlFile(zip, "docProps/app.xml");
-            var app_verssion_str = app["Properties"]["AppVersion"]
-            app_verssion = parseInt(app_verssion_str);
-            console.log("create by Office PowerPoint app verssion: ", app_verssion_str)
+
+            if (app) {
+                var app_verssion_str = app["Properties"]["AppVersion"]
+                app_verssion = parseInt(app_verssion_str);
+                console.log("create by Office PowerPoint app verssion: ", app_verssion_str)
+            }
 
             //get slide dimensions
             var rtenObj = {};
